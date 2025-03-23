@@ -1,19 +1,20 @@
 import React from "react";
 import {
     createBrowserRouter,
+    redirect
   } from "react-router-dom";
-import { AuthPage } from "../pages/auth";
+import { MainPage } from "../pages/main";
 import { Error404Page } from "../pages/error-404";
 import { Error500Page } from "../pages/error-500";
   
 export const router = createBrowserRouter([
     {
       path: "/",
-      element: <div>Hello world!</div>,
+      loader: () => redirect('/main'),
     },
     {
-      path: "/auth",
-      element: <AuthPage/>
+      path: "/main",
+      element: <MainPage/>
     },
     {
       path: "/server-error",
